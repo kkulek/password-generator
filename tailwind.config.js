@@ -15,6 +15,9 @@ module.exports = {
                     medium: '#F8CD65',
                     strong: '#A4FFAF'
                 }
+            },
+            fontFamily: {
+                'primary': ['JetBrains Mono', 'monospace']
             }
         },
     },
