@@ -1,34 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="./assets/images/favicon/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="./assets/images/favicon/favicon-16x16.png">
-  <link rel="mask-icon" href="./assets/images/favicon/safari-pinned-tab.svg" color="#5bbad5">
-  <meta name="msapplication-TileColor" content="#da532c">
-  <meta name="theme-color" content="#ffffff">
-  <link href="/dist/output.css" rel="stylesheet">
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
-  <title>Password generator app</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/images/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/images/favicon/favicon-16x16.png">
+    <link rel="mask-icon" href="./assets/images/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <link href="/dist/output.css" rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
+    <title>Password generator app</title>
 </head>
 <body>
-
-  Password Generator
-
-  P4$5W0rD!
-
-  Character Length
-
-  Include Uppercase Letters
-  Include Lowercase Letters
-  Include Numbers
-  Include Symbols
-
-  Strength
-
-  Generate
-
+<main>
+    <h1>Password Generator</h1>
+    <div>
+        <p><!--Generated password--> !@&SJADsiE</p>
+        <button><!--Copy password to clipboard--> copy</button>
+    </div>
+    <div> <!--Range and checkboxes div-->
+        <label for="length-range">Character Length</label>
+        <p>10</p> <!--pass length according to chosen range-->
+        <div>
+            <input
+                    type="range"
+                    name="length"
+                    id="length-range"
+                    min="4"
+                    max="16"
+                    value="10"
+            >
+        </div>
+        <div> <!--checkboxes-->
+            <label for="uppercase">
+                <input type="checkbox" name="uppercase" id="uppercase" checked>
+                <span></span>
+                Include Uppercase Letters
+            </label>
+            <label for="lowercase">
+                <input type="checkbox" name="lowercase" id="lowercase" checked>
+                <span></span>
+                Include Lowercase Letters
+            </label>
+            <label for="numbers">
+                <input type="checkbox" name="numbers" id="numbers" checked>
+                <span></span>
+                Include Numbers
+            </label>
+            <label for="symbols">
+                <input type="checkbox" name="symbols" id="symbols">
+                <span></span>
+                Include Symbols
+            </label>
+        </div>
+        <div> <!--pass strength-->
+            <p>Strength</p>
+            <div>
+                <p>Medium</p>
+                <div data-value="3">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+        <button data-type="action">Generate</button>
+    </div>
+</main>
 </body>
 </html>
