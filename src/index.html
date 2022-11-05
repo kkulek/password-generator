@@ -17,61 +17,78 @@
     <title>Password generator app</title>
 </head>
 <body>
-<main>
-    <h1>Password Generator</h1>
-    <div>
-        <p><!--Generated password--> !@&SJADsiE</p>
-        <button><!--Copy password to clipboard--> copy</button>
-    </div>
-    <div> <!--Range and checkboxes div-->
-        <label for="length-range">Character Length</label>
-        <p>10</p> <!--pass length according to chosen range-->
-        <div>
-            <input
-                    type="range"
-                    name="length"
-                    id="length-range"
-                    min="4"
-                    max="16"
-                    value="10"
-            >
+<main class="flex flex-col justify-center items-center gap-4 min-h-screen bg-darkest text-lightest font-primary">
+    <h1 class="text-light">Password Generator</h1>
+    <section class="flex flex-col gap-4 w-96 md:w-[540px]">
+        <div class="flex justify-between items-center p-4 bg-dark">
+            <p class="text-2xl">PTx1f5DaFX</p>
+            <a class="cursor-pointer" id="copy" href="#">
+                <svg class="fill-accent hover:fill-lightest transition-colors duration-200"
+                     width="21" height="24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20.341 3.091 17.909.659A2.25 2.25 0 0 0 16.319 0H8.25A2.25 2.25 0 0 0 6 2.25V4.5H2.25A2.25 2.25 0 0 0 0 6.75v15A2.25 2.25 0 0 0 2.25 24h10.5A2.25 2.25 0 0 0 15 21.75V19.5h3.75A2.25 2.25 0 0 0 21 17.25V4.682a2.25 2.25 0 0 0-.659-1.591ZM12.469 21.75H2.53a.281.281 0 0 1-.281-.281V7.03a.281.281 0 0 1 .281-.281H6v10.5a2.25 2.25 0 0 0 2.25 2.25h4.5v1.969a.282.282 0 0 1-.281.281Zm6-4.5H8.53a.281.281 0 0 1-.281-.281V2.53a.281.281 0 0 1 .281-.281H13.5v4.125c0 .621.504 1.125 1.125 1.125h4.125v9.469a.282.282 0 0 1-.281.281Zm.281-12h-3v-3h.451c.075 0 .147.03.2.082L18.667 4.6a.283.283 0 0 1 .082.199v.451Z"/>
+                </svg>
+            </a>
         </div>
-        <div> <!--checkboxes-->
-            <label for="uppercase">
-                <input type="checkbox" name="uppercase" id="uppercase" checked>
-                <span></span>
-                Include Uppercase Letters
-            </label>
-            <label for="lowercase">
-                <input type="checkbox" name="lowercase" id="lowercase" checked>
-                <span></span>
-                Include Lowercase Letters
-            </label>
-            <label for="numbers">
-                <input type="checkbox" name="numbers" id="numbers" checked>
-                <span></span>
-                Include Numbers
-            </label>
-            <label for="symbols">
-                <input type="checkbox" name="symbols" id="symbols">
-                <span></span>
-                Include Symbols
-            </label>
-        </div>
-        <div> <!--pass strength-->
-            <p>Strength</p>
+        <div class="flex flex-col gap-6 px-3.5 py-5 bg-dark"> <!--Range and checkboxes div-->
             <div>
-                <p>Medium</p>
-                <div data-value="3">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                <div class="flex justify-between items-center mb-3">
+                    <label for="length-range">Character Length</label>
+                    <p class="text-2xl text-accent">10</p> <!--pass length according to chosen range-->
+                </div>
+                <input
+                        class="w-full accent-accent cursor-pointer"
+                        type="range"
+                        name="length"
+                        id="length-range"
+                        min="4"
+                        max="16"
+                        value="10"
+                >
+            </div>
+            <div class="flex flex-col gap-4"> <!--checkboxes-->
+                <div class="flex items-center gap-3">
+                    <input class="w-5 h-5 accent-accent cursor-pointer"
+                           type="checkbox" name="uppercase" id="uppercase" checked>
+                    <label class="cursor-pointer" for="uppercase">Include Uppercase Letters</label>
+                </div>
+                <div class="flex items-center gap-3">
+                    <input class="w-5 h-5 accent-accent cursor-pointer"
+                           type="checkbox" name="lowercase" id="lowercase" checked>
+                    <label class="cursor-pointer" for="lowercase">Include Lowercase Letters</label>
+                </div>
+                <div class="flex items-center gap-3">
+                    <input class="w-5 h-5 accent-accent cursor-pointer"
+                           type="checkbox" name="numbers" id="numbers" checked>
+                    <label class="cursor-pointer" for="numbers">Include Numbers</label>
+                </div>
+                <div class="flex items-center gap-3">
+                    <input class="w-5 h-5 accent-accent cursor-pointer"
+                           type="checkbox" name="symbols" id="symbols">
+                    <label class="cursor-pointer" for="symbols">Include Symbols</label>
                 </div>
             </div>
+            <div class="flex justify-between items-center px-4 py-5 bg-darkest"> <!--pass strength-->
+                <p class="text-light uppercase">Strength</p>
+                <div class="flex gap-3">
+                    <p class="text-2xl uppercase">Medium</p>
+                    <div data-value="3" class="flex gap-1.5">
+                        <span class="w-2 bg-pass-medium"></span>
+                        <span class="w-2 bg-pass-medium"></span>
+                        <span class="w-2 bg-pass-medium"></span>
+                        <span class="w-2 border-2 border-lightest"></span>
+                    </div>
+                </div>
+            </div>
+            <button class="inline-flex items-center justify-center gap-4 p-4 w-full bg-accent border-2 border-current text-dark uppercase hover:border-accent hover:bg-transparent hover:text-accent transition-colors duration-200"
+                    id="generate"
+                    data-type="action">
+                Generate
+                <svg width="12" height="12" xmlns="http://www.w3.org/2000/svg" class="fill-dark">
+                    <path d="m5.106 12 6-6-6-6-1.265 1.265 3.841 3.84H.001v1.79h7.681l-3.841 3.84z"/>
+                </svg>
+            </button>
         </div>
-        <button data-type="action">Generate</button>
-    </div>
+    </section>
 </main>
 </body>
 </html>
