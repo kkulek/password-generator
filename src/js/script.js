@@ -121,7 +121,6 @@ generate.addEventListener('click', passwordValidation);
 
 
 //Password strength cases:
-
 //Strong:
 // 1. >2 char types && >12 characters
 // 2. >3 char types && >9 characters
@@ -139,17 +138,65 @@ generate.addEventListener('click', passwordValidation);
 //3. <8 characters && <3 char types
 
 const strength = document.getElementById('strength');
+const strengthBars = document.getElementById('strength-bars');
 
 const printStrength = (statusSum) => {
     let length = passwordRange.value;
 
     if (statusSum < 2 || length < 6 || (statusSum < 3 && length < 8)) {
-        strength.innerText = 'too weak'
+        strength.innerText = 'too weak';
+        strengthBars.dataset.value = '1';
+        colorTheBars('1');
+
     } else if ((statusSum > 2 && length > 12) || (statusSum > 3 && length > 9)) {
-        strength.innerText = 'strong'
+        strength.innerText = 'strong';
+        strengthBars.dataset.value = '4';
+        colorTheBars('4');
+
     } else if ((statusSum > 2 && length > 7) || (statusSum > 1 && length > 12)) {
-        strength.innerText = 'medium'
+        strength.innerText = 'medium';
+        strengthBars.dataset.value = '3';
+        colorTheBars('3');
+
     } else {
-        strength.innerText = 'weak'
+        strength.innerText = 'weak';
+        strengthBars.dataset.value = '2';
+        colorTheBars('2');
+    }
+};
+
+//bars styles
+
+const colorTheBars = (amount) => {
+    const bars = strengthBars.children;
+    Array.from(bars).forEach(bar => bar.className = '');
+
+    switch (amount) {
+        case '1':
+            bars[0].classList.add('weakest');
+            bars[1].classList.add('empty');
+            bars[2].classList.add('empty');
+            bars[3].classList.add('empty');
+            break;
+
+        case '2':
+            bars[0].classList.add('weak');
+            bars[1].classList.add('weak');
+            bars[2].classList.add('empty');
+            bars[3].classList.add('empty');
+            break;
+        case '3':
+            bars[0].classList.add('medium');
+            bars[1].classList.add('medium');
+            bars[2].classList.add('medium');
+            bars[3].classList.add('empty');
+            break;
+
+        case '4':
+            bars[0].classList.add('strong');
+            bars[1].classList.add('strong');
+            bars[2].classList.add('strong');
+            bars[3].classList.add('strong');
+            break;
     }
 }
