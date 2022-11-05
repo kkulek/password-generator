@@ -4,13 +4,14 @@ module.exports = {
     theme: {
         extend: {
             colors: {
-                'transparent': 'transparent',
-                'darkest': '#18171F',
-                'dark': '#24232C',
-                'light': '#817D92',
-                'lightest': '#E6E5EA',
-                'accent': '#A4FFAF',
-                'pass': {
+                transparent: 'transparent',
+                current: 'currentColor',
+                darkest: '#18171F',
+                dark: '#24232C',
+                light: '#817D92',
+                lightest: '#E6E5EA',
+                accent: '#A4FFAF',
+                pass: {
                     weakest: '#F64A4A',
                     weak: '#FB7C58',
                     medium: '#F8CD65',
@@ -18,7 +19,7 @@ module.exports = {
                 }
             },
             fontFamily: {
-                'primary': ['JetBrains Mono', 'monospace']
+                primary: ['JetBrains Mono', 'monospace']
             }
         },
     },
