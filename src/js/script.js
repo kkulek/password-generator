@@ -63,14 +63,20 @@ const handleCheckbox = (e) => {
     } else {
         passwordArray.filter(x => x.name === e.target.id)[0].status = 0;
     }
-}
+};
 
-checkboxesArr.forEach(el => el.addEventListener('change', handleCheckbox))
-
+checkboxesArr.forEach(el => el.addEventListener('change', handleCheckbox));
 
 
 //Generate password
 const generate = document.getElementById('generate');
+
+const passwordValidation = () => {
+    let final = 0;
+    passwordArray.filter(x => x.status).map(x => final += x.status)
+
+    return final < 1 ? console.log('error') : handleGeneratePassword()
+}
 
 const handleGeneratePassword = () => {
     let passwordCharacters = [];
@@ -89,7 +95,7 @@ const handleGeneratePassword = () => {
 
     if (passwordCharacters.length > passwordRange.value) {
         const toCut = passwordCharacters.length - passwordRange.value;
-        passwordCharacters.splice((toCut * -1));
+        passwordCharacters.splice(toCut * -1);
     }
 
     return shuffleArray(passwordCharacters);
@@ -105,9 +111,28 @@ const shuffleArray = (array) => {
     }
 
     const passwordString = array.join('');
-    return printPassword(passwordString)
+    return printPassword(passwordString);
 }
 
 const printPassword = (string) => password.innerText = string;
 
-generate.addEventListener('click', handleGeneratePassword);
+generate.addEventListener('click', passwordValidation);
+
+
+//Password strength cases:
+
+//Strong:
+// 1. >2 char types && >12 characters
+// 2. >3 char types && >10 characters
+
+//Medium:
+// 1. >2 char types && >9 characters
+// 2. >1 char types && >12 characters
+
+//Weak:
+//else
+
+//Too weak:
+//1. <6 characters
+//2. <2 char type
+//3. <8 characters && <3 char types
