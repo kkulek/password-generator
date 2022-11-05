@@ -2,6 +2,9 @@
 const btnCopyPassword = document.getElementById('copy');
 const password = document.getElementById('password');
 
+//starting password value:
+password.innerText = 'PTx1f5DaFX';
+
 const handleCopy = () => {
     navigator.clipboard.writeText(password.innerText);
 }
@@ -63,3 +66,48 @@ const handleCheckbox = (e) => {
 }
 
 checkboxesArr.forEach(el => el.addEventListener('change', handleCheckbox))
+
+
+
+//Generate password
+const generate = document.getElementById('generate');
+
+const handleGeneratePassword = () => {
+    let passwordCharacters = [];
+    const charTypes = passwordArray.filter(x => x.status === 1);
+
+    let i = 0;
+
+    while (i < (passwordRange.value)) {
+        charTypes.forEach(type => {
+            const randomNum = Math.floor(Math.random() * type.characters.length);
+            const randomChar = type.characters.charAt(randomNum);
+            passwordCharacters.push(randomChar);
+            i++;
+        });
+    }
+
+    if (passwordCharacters.length > passwordRange.value) {
+        const toCut = passwordCharacters.length - passwordRange.value;
+        passwordCharacters.splice((toCut * -1));
+    }
+
+    return shuffleArray(passwordCharacters);
+}
+
+// The Fisher-Yates algorithm
+const shuffleArray = (array) => {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        const temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+
+    const passwordString = array.join('');
+    return printPassword(passwordString)
+}
+
+const printPassword = (string) => password.innerText = string;
+
+generate.addEventListener('click', handleGeneratePassword);
