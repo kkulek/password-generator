@@ -715,6 +715,42 @@ video {
   transition-duration: 200ms;
 }
 
+@layer bars {
+  .empty {
+    /*@apply w-2 border-2 border-lightest bg-blue-500;*/
+    width: 0.5rem;
+    border-width: 2px;
+    --tw-border-opacity: 1;
+    border-color: rgb(59 130 246 / var(--tw-border-opacity));
+    --tw-bg-opacity: 1;
+    background-color: rgb(230 229 234 / var(--tw-bg-opacity));
+  }
+
+  .weakest {
+    width: 0.5rem;
+    --tw-bg-opacity: 1;
+    background-color: rgb(246 74 74 / var(--tw-bg-opacity));
+  }
+
+  .weak {
+    width: 0.5rem;
+    --tw-bg-opacity: 1;
+    background-color: rgb(251 124 88 / var(--tw-bg-opacity));
+  }
+
+  .medium {
+    width: 0.5rem;
+    --tw-bg-opacity: 1;
+    background-color: rgb(248 205 101 / var(--tw-bg-opacity));
+  }
+
+  .strong {
+    width: 0.5rem;
+    --tw-bg-opacity: 1;
+    background-color: rgb(164 255 175 / var(--tw-bg-opacity));
+  }
+}
+
 .hover\:border-accent:hover {
   --tw-border-opacity: 1;
   border-color: rgb(164 255 175 / var(--tw-border-opacity));

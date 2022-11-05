@@ -1,3 +1,25 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer bars {
+    .empty {
+        @apply w-2 bg-lightest;
+    }
+
+    .weakest {
+        @apply w-2 bg-pass-weakest;
+    }
+
+    .weak {
+        @apply w-2 bg-pass-weak;
+    }
+
+    .medium {
+        @apply w-2 bg-pass-medium;
+    }
+
+    .strong {
+        @apply w-2 bg-pass-strong;
+    }
+}

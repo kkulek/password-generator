@@ -33,11 +33,11 @@
 
             </div>
         </div>
-        <div class="flex flex-col gap-6 px-3.5 py-5 bg-dark"> <!--Range and checkboxes div-->
+        <div class="flex flex-col gap-6 px-3.5 py-5 bg-dark">
             <div>
                 <div class="flex justify-between items-center mb-3">
                     <label for="length-range">Character Length</label>
-                    <output class="text-2xl text-accent" id="password-length">10</output> <!--pass length according to chosen range-->
+                    <output class="text-2xl text-accent" id="password-length">10</output>
                 </div>
                 <input
                         class="w-full accent-accent cursor-pointer"
@@ -49,7 +49,7 @@
                         value="10"
                 >
             </div>
-            <div class="flex flex-col gap-4"> <!--checkboxes-->
+            <div class="flex flex-col gap-4">
                 <div class="flex items-center gap-3">
                     <input class="w-5 h-5 accent-accent cursor-pointer"
                            type="checkbox" name="uppercase" id="uppercase" checked>
@@ -71,15 +71,15 @@
                     <label class="cursor-pointer" for="symbols">Include Symbols</label>
                 </div>
             </div>
-            <div class="flex justify-between items-center px-4 py-5 bg-darkest"> <!--pass strength-->
+            <div class="flex justify-between items-center px-4 py-5 bg-darkest">
                 <p class="text-light uppercase">Strength</p>
                 <div class="flex gap-3">
-                    <p class="text-2xl uppercase">Medium</p>
-                    <div data-value="3" class="flex gap-1.5">
-                        <span class="w-2 bg-pass-medium"></span>
-                        <span class="w-2 bg-pass-medium"></span>
-                        <span class="w-2 bg-pass-medium"></span>
-                        <span class="w-2 border-2 border-lightest"></span>
+                    <p class="text-2xl uppercase" id="strength">Medium</p>
+                    <div data-value="3" class="flex gap-1.5" id="strength-bars">
+                        <span class="medium"></span>
+                        <span class="medium"></span>
+                        <span class="medium"></span>
+                        <span class="empty"></span>
                     </div>
                 </div>
             </div>
